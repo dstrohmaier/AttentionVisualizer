@@ -3,8 +3,8 @@ import torch
 #--------------------------------------------------------------------------------
 # We need to find where each word starts and finishes after tokenization.
 # Some words will break down during tokenization (like "going" to "go"+"ing"), and
-# we need to loop through the token_ids and say (for example) indexes 10 and 11  
-# corresponds with the word "going". We do the same thing to find the locations 
+# we need to loop through the token_ids and say (for example) indexes 10 and 11
+# corresponds with the word "going". We do the same thing to find the locations
 # of [dot] tokens and stop words as well.
 #
 # Then we can use these positions to either calculate the score of a multi-part
@@ -60,11 +60,11 @@ def find_positions(ignore_specials, ignore_stopwords, the_tokens, stop_words):
 
     if not ignore_specials:
         positions[len( positions )] = [i, i+1]
-    
+
     return positions, dot_positions, stopwords_positions
 
 #--------------------------------------------------------------------------------
-# Splitting the text into words as a refrence. Then we can map the words to the 
+# Splitting the text into words as a refrence. Then we can map the words to the
 # find_positions() function's output.
 #--------------------------------------------------------------------------------
 def make_the_words(inp, positions, ignore_specials):
@@ -76,7 +76,7 @@ def make_the_words(inp, positions, ignore_specials):
     else:
         the_words = inp.replace(".", " .").split(" ")[0:(num_of_words-2)]
         the_words = ['[BOS]'] + the_words + ['[EOS]']
-    
+
     return the_words
 
 #--------------------------------------------------------------------------------
@@ -114,4 +114,8 @@ def make_html(the_words, positions, final_score, num_words=15):
 # Returns a sample article if package is initialized witt "with_sample=True" argument.
 #--------------------------------------------------------------------------------
 def get_sample_article():
-    return """sebastian vettel is determined to ensure the return of a long-standing ritual at ferrari is not a one-off this season. fresh from ferrari's first victory in 35 grands prix in malaysia 11 days ago, and ending his own 20-race drought, vettel returned to a hero's welcome at the team's factory at maranello last week. the win allowed ferrari to revive a tradition not seen at their base for almost two years since their previous triumph in may 2013 at the spanish grand prix courtesy of fernando alonso. sebastian vettel reflected on his stunning win for ferrari at the malaysian grand prix during the press conference before the weekend's chinese grand prix in shanghai the four-time world champion shares a friendly discussion with mclaren star jenson button four-times world champion vettel said: 'it was a great victory we had in malaysia, great for us as a team, and for myself a very emotional day - my first win with ferrari. 'when i returned to the factory on wednesday, to see all the people there was quite special. there are a lot of people working there and as you can imagine they were very, very happy. 'the team hadn't won for quite a while, so they enjoyed the fact they had something to celebrate. there were a couple of rituals involved, so it was nice for them to get that feeling again.' asked as to the specific nature of the rituals, vettel replied: 'i was supposed to be there for simulator work anyway, but it was quite nice to receive the welcome after the win. ferrari's vettel and britta roeske arrive at the shanghai circuit along with a ferrari mechanic, vettel caught up with members of his old team red bull on thursday 'all the factory got together for a quick lunch. it was quite nice to have all the people together in one room - it was a big room! - so we were able to celebrate altogether for a bit. 'i also learned when you win with ferrari, at the entry gate, they raise a ferrari flag - and obviously it's been a long time since they last did that. 'some 10 years ago there were a lot of flags, especially at the end of a season, so this flag will stay there for the rest of the year. 'we will, of course, try and put up another one sometime soon.' inside the ferrari garage, vettel shares a discussion with team staff as he looks to build on his sepang win ferrari team principal maurizio arrivabene shares a conversation with vettel at the team's hospitality suite the feeling is that will not happen after this weekend's race in china as the conditions at the shanghai international circuit are expected to suit rivals mercedes. not that vettel believes his success will be a one-off, adding: 'for here and the next races, we should be able to confirm we have a strong package and a strong car. 'we will want to make sure we stay ahead of the people we were ahead of in the first couple of races, but obviously knowing mercedes are in a very, very strong position. 'in general, for the start of a season things can be up and down, and we want to make sure there is quite a lot of ups, not so many downs. 'but it's normal in some races you are more competitive than others. 'we managed to do a very good job in malaysia, but for here and the next races we have to be realistic about we want to achieve.' ferrari mechanics show their joy after vettel won the malaysian grand prix, helping record the team's first formula one win since 2013 at the spanish grand prix"""
+    return """Few persons care to study logic, because everybody conceives himself to be proficient enough in the art of reasoning already. But I observe that this satisfaction is limited to one's own ratiocination, and does not extend to that of other men.
+
+We come to the full possession of our power of drawing inferences, the last of all our faculties; for it is not so much a natural gift as a long and difficult art. The history of its practice would make a grand subject for a book. The medieval schoolman, following the Romans, made logic the earliest of a boy's studies after grammar, as being very easy. So it was as they understood it. Its fundamental principle, according to them, was, that all knowledge rests either on authority or reason; but that whatever is deduced by reason depends ultimately on a premiss derived from authority. Accordingly, as soon as a boy was perfect in the syllogistic procedure, his intellectual kit of tools was held to be complete.
+
+To Roger Bacon, that remarkable mind who in the middle of the thirteenth century was almost a scientific man, the schoolmen's conception of reasoning appeared only an obstacle to truth. He saw that experience alone teaches anything — a proposition which to us seems easy to understand, because a distinct conception of experience has been handed down to us from former generations; which to him likewise seemed perfectly clear, because its difficulties had not yet unfolded themselves. Of all kinds of experience, the best, he thought, was interior illumination, which teaches many things about Nature which the external senses could never discover, such as the transubstantiation of bread. """
