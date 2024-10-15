@@ -1,4 +1,3 @@
-
 <a href="https://twitter.com/NLPiation">
 <img src="https://img.shields.io/badge/Author-Twitter-blue" />
 </a>
@@ -9,6 +8,10 @@
 <img src="https://colab.research.google.com/assets/colab-badge.svg" />
 </a>
 
+# Note
+
+This is a slightly modified fork of the original project by Ala Alam Falaki. According to setup.py, this project is under MIT license.
+
 # Attention Visualizer
 
 <p align="center">
@@ -17,7 +20,7 @@
 </p>
 
 A fun project that turns out as a python package with a simple UI to visualize the self-attention score using the RoBERTa library. It is implemented for IPython Notebook environment with options to ignore tokens like "BOS", "[dot]s", or "stopwords". You can also look at a range or specific Layers/Heads.
- 
+
 ## Demo
 
 Run the library on a Google Colab instance using the [following link](https://colab.research.google.com/github/AlaFalaki/AttentionVisualizer/blob/main/demo.ipynb).
@@ -26,7 +29,7 @@ Run the library on a Google Colab instance using the [following link](https://co
 
 ## Installation
 
-The package is only hosted on Github for now. You can use `pip` to install the package. 
+The package is only hosted on Github for now. You can use `pip` to install the package.
 
 ```bash
   pip install git+https://github.com/AlaFalaki/AttentionVisualizer.git
@@ -57,7 +60,7 @@ The package will automatically installs all the requirements.
 
 ## Implementation Details
 
-If you are interested in the project and want to know more, I wrote a blog post on medium that explain the implementation in detail. 
+If you are interested in the project and want to know more, I wrote a blog post on medium that explain the implementation in detail.
 
 <a href="https://pub.towardsai.net/attention-visualizer-package-showcase-highest-scored-words-using-roberta-model-8218658b4447">
 Attention Visualizer Package: Showcase Highest Scored Words Using RoBERTa Model
