@@ -34,10 +34,14 @@ class AttentionVisualizer:
             value=f"<h3>Step 1:</h3> Write the input text in the box below."
         )
         self.input_text = widgets.Textarea(
-            placeholder="Type something", description="Input Text:", rows=10,
-            layout={'height': '100%'}
+            placeholder="Type something",
+            description="Input Text:",
+            rows=10,
+            layout={"width": "100%"},
         )
-        self.step1 = widgets.VBox([self.step1_lbl, self.input_text], layout={'width': '800px'})
+        self.step1 = widgets.VBox(
+            [self.step1_lbl, self.input_text], layout={"width": "800px"}
+        )
 
         self.preview_config_lbl = widgets.HTML(
             value=f"<h3>Step 2:</h3> Select which attention layer/head and words to visualize."
